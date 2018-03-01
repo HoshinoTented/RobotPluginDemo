@@ -1,6 +1,6 @@
 plugins {
-    id(("com.android.application"))
-    kotlin(("android"))
+    id("com.android.application")
+    kotlin("android")
 }
 
 android {
@@ -26,7 +26,7 @@ android {
 
 val ankoVersion = "0.10.4"
 val hoshinoVersion = "1.0.5"
-val kotlinVersion = "1.2.21"
+val kotlinVersion = "1.2.30"
 
 fun DependencyHandlerScope.android(name : String, version : String) =
         "com.android.support:$name:$version"
@@ -45,4 +45,6 @@ dependencies {
     implementation(anko("design"))
 
     implementation("com.github.HoshinoTented.MainLibrary:KotlinExtra:$hoshinoVersion")
+
+    testImplementation("junit", "junit", "4.12")
 }
