@@ -135,4 +135,10 @@ class PluginMsg : Parcelable {
     @Throws(RemoteException::class)
     fun send() = Demo.connection?.service?.handlerMessage(this@PluginMsg)
 
+    @Throws(RemoteException::class)
+    fun send(key : Key, context : String) = PluginMsg().apply {
+        group = this@PluginMsg.group
+        addMsg(key, context)
+    }.send()
+
 }
