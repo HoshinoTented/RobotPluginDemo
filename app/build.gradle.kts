@@ -41,34 +41,34 @@ val version = "1.0"
 val code = 1
 
 val ankoVersion = "0.10.4"
-val hoshinoVersion = "1.0.5"
+val hoshinoVersion = "1.0.6.9"
 val kotlinVersion = "1.2.30"
 
 fun DependencyHandlerScope.hoshino(name : String, version : String = hoshinoVersion) =
-        "com.github.HoshinoTented.MainLibrary:$name:$version"
+        implementation("com.github.HoshinoTented.MainLibrary:$name:$version")
 
 fun DependencyHandlerScope.android(name : String, version : String) =
-        "com.android.support:$name:$version"
+        implementation("com.android.support:$name:$version")
 
 fun DependencyHandlerScope.anko(name : String, version : String = ankoVersion) =
-        "org.jetbrains.anko:anko-$name:$version"
+        implementation("org.jetbrains.anko:anko-$name:$version")
 
 dependencies {
     //Kotlin
     implementation(kotlin("stdlib-jdk8", kotlinVersion))
 
     //Android
-    implementation(android("appcompat-v7", "26.1.0"))
-    implementation(android("design", "26.1.0"))
+    android("appcompat-v7", "26.1.0")
+    android("design", "26.1.0")
     implementation("com.android.support.constraint:constraint-layout:1.0.2")
 
     //Anko
-    implementation(anko("sdk25"))
-    implementation(anko("appcompat-v7"))
-    implementation(anko("design"))
+    anko("sdk25")
+    anko("appcompat-v7")
+    anko("design")
 
     //Extra
-    implementation(hoshino("KotlinExtra"))
+    hoshino("KotlinExtra")
 
     //Test
     testImplementation("junit", "junit", "4.12")
