@@ -1,3 +1,20 @@
+val packageName = "top.tented.plugindemo"
+val code = 1
+val version = "1.0"
+
+val kotlinVersion : String by rootProject.extra
+val ankoVersion = "0.10.4"
+val hoshinoVersion = "1.0.7-02"
+
+fun DependencyHandlerScope.hoshino(name : String, version : String = hoshinoVersion) =
+        "com.github.HoshinoTented.MainLibrary:$name:$version"
+
+fun DependencyHandlerScope.android(name : String, version : String) =
+        "com.android.support:$name:$version"
+
+fun DependencyHandlerScope.anko(name : String, version : String = ankoVersion) =
+        "org.jetbrains.anko:anko-$name:$version"
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -33,23 +50,6 @@ android {
         }
     }
 }
-
-val packageName = "top.tented.plugindemo"
-val code = 1
-val version = "1.0"
-
-val kotlinVersion : String by rootProject.extra
-val ankoVersion = "0.10.4"
-val hoshinoVersion = "1.0.7-02"
-
-fun DependencyHandlerScope.hoshino(name : String, version : String = hoshinoVersion) =
-        "com.github.HoshinoTented.MainLibrary:$name:$version"
-
-fun DependencyHandlerScope.android(name : String, version : String) =
-        "com.android.support:$name:$version"
-
-fun DependencyHandlerScope.anko(name : String, version : String = ankoVersion) =
-        "org.jetbrains.anko:anko-$name:$version"
 
 dependencies {
     //Kotlin
